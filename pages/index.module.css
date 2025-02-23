@@ -1,0 +1,22 @@
+.sidebar {
+  height: 100%;
+  width: 300px;
+  padding: var(--mantine-spacing-md);
+  background-color: #e4e4e4;
+}
+
+.banner {
+  background-color: #323b4c;
+  color: var(--mantine-color-white);
+  padding: var(--mantine-spacing-lg);
+}
+
+.skillBadge {
+  text-transform: none;
+  font-weight: 400;
+}
+
+.languageIcon {
+  background-color: #323b4c;
+  margin-right: var(--mantine-spacing-sm);
+}
