@@ -2,12 +2,15 @@
   "name": "sandy-brutas-cv",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://sdabrutas.github.io/mantine-cv",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint-fix": "eslint ./components/** ./pages/** -c .eslintrc.json --fix --ext js,jsx"
+    "lint-fix": "eslint ./components/** ./pages/** -c .eslintrc.json --fix --ext js,jsx",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d out"
   },
   "dependencies": {
     "@mantine/core": "7.17.0",
@@ -29,6 +32,7 @@
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.1.0",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.5.1",
     "postcss-preset-mantine": "1.17.0",
     "postcss-simple-vars": "^7.0.1",

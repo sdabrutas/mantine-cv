@@ -12,6 +12,7 @@ const nextConfig = {
   eslint: {
     dirs: ['pages', 'utils'],
   },
+  output: 'export',
 };
 
 export default nextConfig;
