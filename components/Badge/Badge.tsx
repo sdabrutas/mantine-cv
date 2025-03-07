@@ -1,9 +1,10 @@
 import { cloneElement } from 'react';
-import { BadgeProps, Badge as MantineBadge, ThemeIconProps } from '@mantine/core';
+import { Badge as MantineBadge, ThemeIconProps } from '@mantine/core';
 
 import classes from './badge.module.css';
+import { BadgeProps } from './types';
 
-const Badge: React.FC<{ label: string; icon?: React.ReactElement<ThemeIconProps>; variant?: BadgeProps['variant'] }> = ({ label, icon, variant = 'filled' }) => (
+const Badge: React.FC<BadgeProps> = ({ label, icon, variant = 'filled' }) => (
   <MantineBadge
     className={classes.skillBadge}
     size="lg"

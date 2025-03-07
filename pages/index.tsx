@@ -1,26 +1,36 @@
 import { Anchor, Avatar, Box, Card, Container, Divider, Flex, Group, List, Progress, Spoiler, Stack, Text, ThemeIcon, Timeline, Title, useMantineTheme } from '@mantine/core';
 
-import { IconBrandAdobePhotoshop, IconBrandAngular, IconBrandCpp, IconBrandCss3, IconBrandFigma, IconBrandGit, IconBrandHtml5, IconBrandJavascript, IconBrandLinkedin, IconBrandLinkedinFilled, IconBrandMantine, IconBrandNextjs, IconBrandNodejs, IconBrandNotion, IconBrandPython, IconBrandReact, IconBrandReactNative, IconBrandRedux, IconBrandStorybook, IconBrandTailwind, IconBrandThreejs, IconBrandTypescript, IconBrandVite, IconCircleCheck, IconFoldDown, IconFoldUp, IconMail, IconMailFilled, IconMapPin, IconMapPinFilled, IconPhone, IconPhoneFilled, IconSkull } from '@tabler/icons-react';
+import { IconBrandAdobePhotoshop, IconBrandAngular, IconBrandAws, IconBrandCpp, IconBrandCss3, IconBrandFigma, IconBrandGit, IconBrandGithub, IconBrandGithubFilled, IconBrandHtml5, IconBrandJavascript, IconBrandLinkedin, IconBrandLinkedinFilled, IconBrandMantine, IconBrandNextjs, IconBrandNodejs, IconBrandNotion, IconBrandPython, IconBrandReact, IconBrandReactNative, IconBrandRedux, IconBrandStorybook, IconBrandTailwind, IconBrandThreejs, IconBrandTypescript, IconBrandVite, IconCircleCheck, IconFoldDown, IconFoldUp, IconMail, IconMailFilled, IconMapPin, IconMapPinFilled, IconPhone, IconPhoneFilled, IconSkull } from '@tabler/icons-react';
 import classes from './index.module.css';
 import profilePicture from '../assets/img/profile_photo.jpg';
 import { ReactComponent as JavaIcon } from '../assets/icons/java.svg';
-import { Badge } from '../components';
+import { Badge, ExperienceBlock } from '../components';
+import LanguageMeter from '../components/LanguageMeter/LanguageMeter';
 
 export default function IndexPage() {
   return (
     <Container my="md" size="lg">
+      {/**
+       * ------------ BANNER ------------
+       */}
       <Box className={classes.banner}>
         <Group p="xl">
           <Box w={300} />
           <Box flex={1}>
-            <Stack>
-              <Title fz={48} order={1}>SANDY BRUTAS</Title>
+            <Stack className={classes.bannerContent}>
+              <Title fz="3rem" order={1}>SANDY BRUTAS</Title>
               <Title fw={500} order={2}>FRONT-END DEVELOPER</Title>
             </Stack>
           </Box>
         </Group>
       </Box>
+      {/**
+       * ------------ BANNER ------------
+       */}
       <Group align="flex-start" justify="stretch">
+        {/**
+         * ------------ SIDE BAR ------------
+         */}
         <Box className={classes.sidebar}>
           <Box className={classes.avatarWrapper}>
             <img className={classes.avatarImage} alt="avatar" src={profilePicture.src} />
@@ -47,66 +57,10 @@ export default function IndexPage() {
             <Title order={3} fw="500">INDUSTRY SKILLS</Title>
             <Divider size="md" mb="sm" color="dark" />
             <Title order={5} fw="400">Languages</Title>
-            <Flex align="center" mb="xs">
-              <ThemeIcon size={36} radius="md" className={classes.languageIcon}>
-                <IconBrandJavascript size={20} />
-              </ThemeIcon>
-              <Box flex="1">
-                <Text size="xs">JavaScript</Text>
-                <Group grow gap={1}>
-                  <Progress value={100} size="sm" color="#323b4c" />
-                  <Progress value={100} size="sm" color="#323b4c" />
-                  <Progress value={100} size="sm" color="#323b4c" />
-                  <Progress value={100} size="sm" color="#323b4c" />
-                  <Progress value={50} size="sm" color="#323b4c" />
-                </Group>
-              </Box>
-            </Flex>  
-            <Flex align="center" mb="xs">
-              <ThemeIcon size={36} radius="md" className={classes.languageIcon}>
-                <IconBrandPython size={20} />
-              </ThemeIcon>
-              <Box flex="1">
-                <Text size="xs">Python</Text>
-                <Group grow gap={1}>
-                  <Progress value={100} size="sm" color="#323b4c" />
-                  <Progress value={100} size="sm" color="#323b4c" />
-                  <Progress value={50} size="sm" color="#323b4c" />
-                  <Progress value={0} size="sm" color="#323b4c" />
-                  <Progress value={0} size="sm" color="#323b4c" />
-                </Group>
-              </Box>
-            </Flex>
-            <Flex align="center" mb="xs">
-              <ThemeIcon size={36} radius="md" className={classes.languageIcon}>
-                <JavaIcon width={20} />
-              </ThemeIcon>
-              <Box flex="1">
-                <Text size="xs">Java</Text>
-                <Group grow gap={1}>
-                  <Progress value={100} size="sm" color="#323b4c" />
-                  <Progress value={100} size="sm" color="#323b4c" />
-                  <Progress value={0} size="sm" color="#323b4c" />
-                  <Progress value={0} size="sm" color="#323b4c" />
-                  <Progress value={0} size="sm" color="#323b4c" />
-                </Group>
-              </Box>
-            </Flex>
-            <Flex align="center" mb="xs">
-              <ThemeIcon size={36} radius="md" className={classes.languageIcon}>
-                <IconBrandCpp size={20} />
-              </ThemeIcon>
-              <Box flex="1">
-                <Text size="xs">C++</Text>
-                <Group grow gap={1}>
-                  <Progress value={100} size="sm" color="#323b4c" />
-                  <Progress value={100} size="sm" color="#323b4c" />
-                  <Progress value={0} size="sm" color="#323b4c" />
-                  <Progress value={0} size="sm" color="#323b4c" />
-                  <Progress value={0} size="sm" color="#323b4c" />
-                </Group>
-              </Box>
-            </Flex>
+            <LanguageMeter name="Javascript" icon={<IconBrandJavascript size={20} />} rating={4.5} />
+            <LanguageMeter name="Python" icon={<IconBrandPython size={20} />} rating={2.5} />
+            <LanguageMeter name="Java" icon={<JavaIcon width={20} />} rating={2} />
+            <LanguageMeter name="C++" icon={<IconBrandCpp size={20} />} rating={2} />
             <Title order={5} fw="400">Front-end Frameworks / Libraries</Title>
             <Flex gap={4} wrap="wrap" mb="sm">
               <Badge label="React" icon={<IconBrandReact />} />
@@ -155,6 +109,10 @@ export default function IndexPage() {
               <Badge label="Figma" icon={<IconBrandFigma size={14} />} />
               <Badge label="Adobe Photoshop" icon={<IconBrandAdobePhotoshop size={14} />} />
               <Badge label="Agile SDLC" />
+              <Badge label="AWS CloudFront" icon={<IconBrandAws />} />
+              <Badge label="AWS S3" icon={<IconBrandAws />} />
+              <Badge label="CircleCI" />
+              <Badge label="Github" icon={<IconBrandGithubFilled />} />
             </Flex>
           </Box>
           <Box mb="md">
@@ -163,6 +121,9 @@ export default function IndexPage() {
             <Text>Available upon request</Text>
           </Box>
         </Box>
+        {/**
+         * ------------ SIDE BAR ------------
+         */}
         <Stack flex={1} pl="sm" pt="md">
           <Box>
             <Title order={3} fw="500">KEY STRENGTH</Title>
@@ -199,231 +160,135 @@ export default function IndexPage() {
             <Title order={3} fw="500">WORK EXPERIENCE</Title>
             <Divider size="md" mb="sm" color="dark" />
             <Timeline reverseActive active={5} color="#323b4c" bulletSize={16} lineWidth={2} styles={{ itemTitle: { marginBottom: 0 } }}>
-              <Timeline.Item
-                title={
-                  <Group justify="space-between">
-                    <Text fw={500}>Senior Software Engineer</Text>
-                    <Text fs="italic">October 2024 - present</Text>
-                  </Group>
-                }
-              >
-                <Spoiler
-                  classNames={{ control: classes.spoilerControl }}
-                  maxHeight={64}
-                  showLabel={<IconFoldDown size={20} />}
-                  hideLabel={<IconFoldUp size={20} />}
-                  initialState={true}
-                >
-                  <Text>Reap Technologies Limited</Text>
-                  <List>
-                    <List.Item fz="sm">
-                      focuses on creating reusable React components for the company's front-end applications
-                    </List.Item>
-                    <List.Item fz="sm">
-                      works on the front-end side of a couple fintech platform applications
-                    </List.Item>
-                  </List>
-                  <Flex mt="sm" mb="sm" columnGap={2} rowGap={4} wrap="wrap">
-                    <Badge variant="light" label="React" icon={<IconBrandReact />} />
-                    <Badge variant="light" label="Typescript" icon={<IconBrandTypescript />} />
-                    <Badge variant="light" label="Vite" icon={<IconBrandVite />} />
-                    <Badge variant="light" label="React Query" />
-                    <Badge variant="light" label="Material UI" />
-                    <Badge variant="light" label="Testing Library" />
-                    <Badge variant="light" label="Vitest" icon={<IconBrandVite />} />
-                    <Badge variant="light" label="Git" icon={<IconBrandGit />} />
-                    <Badge variant="light" label="Figma" icon={<IconBrandFigma />} />
-                    <Badge variant="light" label="Notion" icon={<IconBrandNotion />} />
-                  </Flex>
-                </Spoiler>
-              </Timeline.Item>
-              <Timeline.Item
-                title={
-                  <Group justify="space-between">
-                    <Text fw={500}>Front End Developer</Text>
-                    <Text fs="italic">March 2022 - October 2024</Text>
-                  </Group>
-                }
-              >
-                <Spoiler
-                  classNames={{ control: classes.spoilerControl }}
-                  maxHeight={64}
-                  showLabel={<IconFoldDown size={20} />
-                  }
-                  hideLabel={<IconFoldUp size={20} />}
-                >
-                  <Text>Biarri Networks</Text>
-                  <List>
-                    <List.Item fz="sm">
-                      worked as a front-end developer on a fiber optic network planning tool, mainly visualizing geographic data using React
-                    </List.Item>
-                  </List>
-                  <Flex mt="sm" mb="sm" columnGap={2} rowGap={4} wrap="wrap">
-                    <Badge variant="light" label="React" icon={<IconBrandReact />} />
-                    <Badge variant="light" label="Typescript" icon={<IconBrandTypescript />} />
-                    <Badge variant="light" label="Vite" icon={<IconBrandVite />} />
-                    <Badge variant="light" label="Redux" icon={<IconBrandRedux />} />
-                    <Badge variant="light" label="RTK Query" />
-                    <Badge variant="light" label="Mapbox GL JS" />
-                    <Badge variant="light" label="Ag Grid" />
-                    <Badge variant="light" label="Material UI" />
-                    <Badge variant="light" label="msw" />
-                    <Badge variant="light" label="Testing Library" />
-                    <Badge variant="light" label="Jest" />
-                    <Badge variant="light" label="Selenium" />
-                    <Badge variant="light" label="Git" icon={<IconBrandGit />} />
-                    <Badge variant="light" label="Figma" icon={<IconBrandFigma />} />
-                  </Flex>
-                </Spoiler>
-              </Timeline.Item>
-              <Timeline.Item
-                title={
-                  <Group justify="space-between">
-                    <Text fw={500}>Senior Front-end Developer</Text>
-                    <Text fs="italic">August 2021 - March 2022</Text>
-                  </Group>
-                }                                                                                                                                             
-              >
-                <Spoiler
-                  classNames={{ control: classes.spoilerControl }}
-                  maxHeight={64}
-                  showLabel={<IconFoldDown size={20} />
-                  }
-                  hideLabel={<IconFoldUp size={20} />}
-                >
-                  <Text>FlixForge Ltd. (Contract / Consultancy)</Text>
-                  <List>
-                    <List.Item fz="sm">
-                      offered services related to maintenance and development of a client's OTT and VOD platform, migrating it from Angular to React
-                    </List.Item>
-                  </List>
-                  <Flex mt="sm" mb="sm" columnGap={2} rowGap={4} wrap="wrap">
-                    <Badge variant="light" label="React" icon={<IconBrandReact />} />
-                    <Badge variant="light" label="Typescript" icon={<IconBrandTypescript />} />
-                    <Badge variant="light" label="Angular" icon={<IconBrandAngular />} />
-                    <Badge variant="light" label="create-react-app" />
-                    <Badge variant="light" label="Progressive Web App" />
-                    <Badge variant="light" label="Git" icon={<IconBrandGit />} />
-                  </Flex>
-                </Spoiler>
-              </Timeline.Item>
-              <Timeline.Item
-                title={
-                  <Group justify="space-between">
-                    <Text fw={500}>Senior Software Engineer</Text>
-                    <Text fs="italic">April 2020 - August 2021</Text>
-                  </Group>
-                }                                                                                                                                             
-              >
-                <Spoiler
-                  classNames={{ control: classes.spoilerControl }}
-                  maxHeight={64}
-                  showLabel={<IconFoldDown size={20} />
-                  }
-                  hideLabel={<IconFoldUp size={20} />}
-                >
-                  <Text>Cambridge University Press & Assessment (DSCL Manila — ROHQ)</Text>
-                  <List>
-                    <List.Item fz="sm">
-                      performed maintenance tasks that include new feature developments and bug fixing for multiple customer-facing web applications
-                    </List.Item>
-                  </List>
-                  <Flex mt="sm" mb="sm" columnGap={2} rowGap={4} wrap="wrap">
-                    <Badge variant="light" label="Angular" icon={<IconBrandAngular />} />
-                    <Badge variant="light" label="jQuery" />
-                    <Badge variant="light" label="Vanilla JS" icon={<IconBrandJavascript />} />
-                    <Badge variant="light" label="Handlebars" />
-                    <Badge variant="light" label="EJS" />
-                    <Badge variant="light" label="Gulp" />
-                    <Badge variant="light" label="Webpack" />
-                    <Badge variant="light" label="Spring Boot" />
-                    <Badge variant="light" label="Git" icon={<IconBrandGit />} />
-                    <Badge variant="light" label="Perforce" icon={<IconBrandGit />} />
-                  </Flex>
-                </Spoiler>
-              </Timeline.Item>
-              <Timeline.Item
-                title={
-                  <Group justify="space-between">
-                    <Text fw={500}>Software Engineer II</Text>
-                    <Text fs="italic">July 2018 - April 2020</Text>
-                  </Group>
-                }                                                                                                                                             
-              >
-                <Spoiler
-                  classNames={{ control: classes.spoilerControl }}
-                  maxHeight={64}
-                  showLabel={<IconFoldDown size={20} />
-                  }
-                  hideLabel={<IconFoldUp size={20} />}
-                >
-                  <Text>Samsung Research & Development Institute, Philippines</Text>
-                  <List>
-                    <List.Item fz="sm">
-                      delegated to design various projects’ front-end architecture
-                    </List.Item>
-                    <List.Item fz="sm">
-                      worked on a number of large-scale data visualization and virtualization projects using React
-                    </List.Item>
-                  </List>
-                  <Flex mt="sm" mb="sm" columnGap={2} rowGap={4} wrap="wrap">
-                    <Badge variant="light" label="React" icon={<IconBrandReact />} />
-                    <Badge variant="light" label="Typescript" icon={<IconBrandTypescript />} />
-                    <Badge variant="light" label="Redux" icon={<IconBrandRedux />} />
-                    <Badge variant="light" label="Redux Saga" />
-                    <Badge variant="light" label="Redux Thunk" />
-                    <Badge variant="light" label="styled-components" />
-                    <Badge variant="light" label="Three.js" icon={<IconBrandThreejs />} />
-                    <Badge variant="light" label="Highcharts" />
-                    <Badge variant="light" label="create-react-app" />
-                    <Badge variant="light" label="Testing Library" />
-                    <Badge variant="light" label="Jest" />
-                    <Badge variant="light" label="Enzyme" />
-                    <Badge variant="light" label="Git" icon={<IconBrandGit />} />
-                    <Badge variant="light" label="Zeplin" />
-                  </Flex>
-                </Spoiler>
-              </Timeline.Item>
-              <Timeline.Item
-                title={
-                  <Group justify="space-between">
-                    <Text fw={500}>Software Engineer</Text>
-                    <Text fs="italic">June 2016 - July 2018</Text>
-                  </Group>
-                }                                                                                                                                             
-              >
-                <Spoiler
-                  classNames={{ control: classes.spoilerControl }}
-                  maxHeight={64}
-                  showLabel={<IconFoldDown size={20} />
-                  }
-                  hideLabel={<IconFoldUp size={20} />}
-                >
-                  <Text>98Labs, Inc.</Text>
-                  <List>
-                    <List.Item fz="sm">
-                      trained to be proficient in end-to-end web development using JavaScript and technologies such as Node.js, Angular, React, etc.
-                    </List.Item>
-                    <List.Item fz="sm">
-                    tasked to work on multiple web-based projects and mobile applications as front-end developer using React.js and React Native
-                    </List.Item>
-                  </List>
-                  <Flex mt="sm" mb="sm" columnGap={2} rowGap={4} wrap="wrap">
-                    <Badge variant="light" label="React" icon={<IconBrandReact />} />
-                    <Badge variant="light" label="React Native" icon={<IconBrandReactNative />} />
-                    <Badge variant="light" label="Angular" icon={<IconBrandAngular />} />
-                    <Badge variant="light" label="jQuery" />
-                    <Badge variant="light" label="Redux" icon={<IconBrandRedux />} />
-                    <Badge variant="light" label="Redux Saga" />
-                    <Badge variant="light" label="Emotion" />
-                    <Badge variant="light" label="create-react-app" />
-                    <Badge variant="light" label="Jest" />
-                    <Badge variant="light" label="Enzyme" />
-                    <Badge variant="light" label="Git" icon={<IconBrandGit />} />
-                    <Badge variant="light" label="Adobe Photoshop" icon={<IconBrandAdobePhotoshop />} />
-                  </Flex>
-                </Spoiler>
-              </Timeline.Item>
+              {/* <ExperienceBlock
+                role="Senior Software Engineer"
+                tenure="October 2024 - present"
+                company="Reap Technologies Limited"
+                defaultExpanded
+                summary={[
+                  "focuses on creating reusable React components for the company's front-end applications",
+                  'works on the front-end side of a couple fintech platform applications',
+                ]}
+                techstack={[
+                  { label: 'React', icon: <IconBrandReact /> },
+                  { label: 'Typescript', icon: <IconBrandTypescript /> },
+                  { label: 'Vite', icon: <IconBrandVite /> },
+                  { label: 'React Query' },
+                  { label: 'Material UI' },
+                  { label: 'Testing Library' },
+                  { label: 'Vitest', icon: <IconBrandVite /> },
+                  { label: 'Git', icon: <IconBrandGit /> },
+                  { label: 'Figma', icon: <IconBrandFigma /> },
+                  { label: 'Notion', icon: <IconBrandNotion /> },
+                ]}
+              /> */}
+              <ExperienceBlock
+                role="Front End Developer"
+                tenure="March 2022 - October 2024"
+                company="Biarri Networks"
+                summary={[
+                  "focuses on creating reusable React components for the company's front-end applications",
+                  'works on the front-end side of a couple fintech platform applications',
+                ]}
+                techstack={[
+                  { label: 'React', icon: <IconBrandReact /> },
+                  { label: 'Typescript', icon: <IconBrandTypescript /> },
+                  { label: 'Vite', icon: <IconBrandVite /> },
+                  { label: 'React Query' },
+                  { label: 'Material UI' },
+                  { label: 'Testing Library' },
+                  { label: 'Vitest', icon: <IconBrandVite /> },
+                  { label: 'Git', icon: <IconBrandGit /> },
+                  { label: 'Figma', icon: <IconBrandFigma /> },
+                  { label: 'Notion', icon: <IconBrandNotion /> },
+                ]}
+              />
+              <ExperienceBlock
+                role="Senior Front-end Developer (Contract)"
+                tenure="August 2021 - March 2022"
+                company="FlixForge Ltd."
+                summary={[
+                  "offered services related to maintenance and development of a client's OTT and VOD platform, migrating it from Angular to React",
+                ]}
+                techstack={[
+                  { label: "React", icon: <IconBrandReact /> },
+                  { label: "Typescript", icon: <IconBrandTypescript /> },
+                  { label: "Angular", icon: <IconBrandAngular /> },
+                  { label: "create-react-app" },
+                  { label: "Progressive Web App" },
+                  { label: "Git", icon: <IconBrandGit /> },
+                ]}
+              />
+              <ExperienceBlock
+                role="Senior Software Engineer"
+                tenure="April 2020 - August 2021"
+                company="Cambridge University Press & Assessment (DSCL Manila — ROHQ)"
+                summary={[
+                  "performed maintenance tasks that include new feature developments and bug fixing for multiple customer-facing web applications",
+                ]}
+                techstack={[
+                  { label: 'Angular', icon: <IconBrandAngular /> },
+                  { label: 'jQuery' },
+                  { label: 'Vanilla JS', icon: <IconBrandJavascript /> },
+                  { label: 'Handlebars' },
+                  { label: 'EJS' },
+                  { label: 'Gulp' },
+                  { label: 'Webpack' },
+                  { label: 'Spring Boot' },
+                  { label: 'Git', icon: <IconBrandGit /> },
+                  { label: 'Perforce' },
+                ]}
+              />
+              <ExperienceBlock 
+                role="Software Engineer II" 
+                tenure="July 2018 - April 2020" 
+                company="Samsung Research & Development Institute, Philippines"
+                summary={[
+                  "delegated to design various projects’ front-end architecture" , "worked on a number of large-scale data visualization and virtualization projects using React",
+                ]} 
+                techstack={[
+                  { label: 'React', icon: <IconBrandReact /> },
+                  { label: 'Typescript', icon: <IconBrandTypescript /> },
+                  { label: 'Redux', icon: <IconBrandRedux /> },
+                  { label: 'Redux Saga' },
+                  { label: 'Redux Thunk'  },
+                  { label: 'styled-components' },
+                  { label: 'Three.js', icon: <IconBrandThreejs /> },
+                  { label: 'Highcharts' },
+                  { label: 'create-react-app' },
+                  { label: 'Testing Library' },
+                  { label: 'Jest' },
+                  { label: 'Enzyme' },
+                  { label: 'Git', icon: <IconBrandGit /> },
+                  { label: 'Zeplin' },
+                ]} 
+             />
+              <ExperienceBlock 
+                role="Software Engineer" 
+                tenure="June 2016 - July 2018" 
+                company="98Labs, Inc."
+                summary={[
+                  "Trained to be proficient in end-to-end web development using JavaScript and technologies such as Node.js, Angular, React, etc.",
+                  "Worked alongside senior developers to migrate an e-commerce platform from PHP to React and develop additional features",
+                  "Developed a WYSIWYG tool by creating a React wrapper for an existing jQuery rich text editor, which allows administrators to easily generate static pages in the platform",
+                  "Contributed to some major features including the dashboard and checkout pages",
+                  "Worked on mobile app POCs for the e-commerce platform and an e-wallet and payments solution using React Native",
+                ]} 
+                techstack={[
+                  { label: 'React', icon: <IconBrandReact /> },
+                  { label: 'React Native', icon: <IconBrandReactNative /> },
+                  { label: 'Angular', icon: <IconBrandAngular /> },
+                  { label: 'jQuery'  },
+                  { label: 'Redux', icon: <IconBrandRedux /> },
+                  { label: 'Redux Saga' },
+                  { label: 'Emotion' },
+                  { label: 'create-react-app' },
+                  { label: 'Jest' },
+                  { label: 'Enzyme' },
+                  { label: 'Git', icon: <IconBrandGit /> },
+                  { label: 'Adobe Photoshop', icon: <IconBrandAdobePhotoshop /> },
+                ]}              
+              />
             </Timeline>
           </Box>
         </Stack>

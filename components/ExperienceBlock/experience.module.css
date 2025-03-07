@@ -1,0 +1,12 @@
+.spoilerControl {
+  background-color: #fff;
+  width: 100%;
+
+  &:hover {
+    background-color: var(--mantine-color-blue-light-hover);
+  }
+
+  &[aria-expanded='false'] {
+    box-shadow: 0 -14px 12px 0px #fff;
+  }
+}

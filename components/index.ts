@@ -1,1 +1,2 @@
-export { default as Badge } from './Badge/Badge';
+export * from './Badge';
+export * from './ExperienceBlock';

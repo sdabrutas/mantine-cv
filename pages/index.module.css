@@ -5,18 +5,55 @@
   padding: var(--mantine-spacing-md);
   background-color: #e4e4e4;
   padding-top: 110px;
+
+  @media screen and (max-width: $mantine-breakpoint-md) {
+    width: 280px;
+  }
+
+  @media screen and (max-width: $mantine-breakpoint-sm) {
+    width: 200px;
+  }
+
+  @media screen and (max-width: $mantine-breakpoint-xs) {
+    width: 100%;
+  }
 }
 
 .banner {
   background-color: #323b4c;
   color: var(--mantine-color-white);
   padding: var(--mantine-spacing-lg);
+
+  @media screen and (max-width: $mantine-breakpoint-sm) {
+    & > div {
+      flex-direction: column;
+      padding: --mantine-spacing-xl;
+    }
+  }
+
+  @media screen and (max-width: $mantine-breakpoint-xs) {
+    min-height: 250px;
+
+    & > div {
+      padding: --mantine-spacing-lg;
+    }
+  }
 }
 
-.languageIcon {
-  background-color: #323b4c;
-  margin-right: var(--mantine-spacing-sm);
+.bannerContent {
+  @media screen and (max-width: $mantine-breakpoint-xs) {
+    & > h1, & > h2 {
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 443px) {
+    & > h1 {
+      font-size: 2.5rem;
+    }
+  }
 }
+
 
 .avatarWrapper {
   position: absolute;
@@ -40,17 +77,3 @@
 .experienceSummaryItem {
   padding-right: 20px;
 }
-
-.spoilerControl {
-  background-color: #fff;
-  width: 100%;
-
-  &:hover {
-    background-color: var(--mantine-color-blue-light-hover);
-  }
-
-  &[aria-expanded='false'] {
-    box-shadow: 0 -14px 12px 0px #fff;
-  }
-}
-
