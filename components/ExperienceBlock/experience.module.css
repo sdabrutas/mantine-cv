@@ -15,4 +15,14 @@
   background-color: #f3f4f7;
   border-radius: 4px;
   overflow: hidden;
+
+  @media print {
+    display: none;
+  }
+}
+
+.timelineItem {
+  &:where(:not(:first-of-type)) {
+    margin-top: var(--mantine-spacing-md);
+  }
 }

@@ -14,15 +14,16 @@ const ExperienceBlock = forwardRef<HTMLDivElement, ExperienceBlockProps>(
     return (
       <Timeline.Item
         ref={ref}
+        className={classes.timelineItem}
         title={
-          <Group justify="space-between">
-            <Text fw={500}>{role}</Text>
+          <Group justify="space-between" align="flex-start" gap="lg">
+            <Text fw={500} style={{ flex: 1, overflowWrap: 'break-word' }}>{company}</Text>
             <Text fs="italic">{tenure}</Text>
           </Group>
         }
         {...rest}
       >
-        <Text>{company}</Text>
+        <Text>{role}</Text>
         <List>
           {summary.map((item, index) => (
             <List.Item key={`summary-item-${index}`} fz="sm">
@@ -30,13 +31,13 @@ const ExperienceBlock = forwardRef<HTMLDivElement, ExperienceBlockProps>(
             </List.Item>
           ))}
         </List>
-        <Box className={classes.container}>
+        <Box className={classes.container} mt="xs">
           <Button
             fullWidth
             justify="flex-start"
             onClick={toggle}
             leftSection={opened ? <IconChevronUp size={20} /> : <IconChevronDown size={20} />}
-            color="#798499"
+            color="#323b4c"
             fw={400}
             radius={0}
           >

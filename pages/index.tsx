@@ -1,6 +1,6 @@
-import { Anchor, Avatar, Box, Card, Container, Divider, Flex, Group, List, Progress, Spoiler, Stack, Text, ThemeIcon, Timeline, Title, useMantineTheme } from '@mantine/core';
+import { ActionIcon, Affix, Anchor, Avatar, Box, Card, Container, Divider, Flex, Group, List, Progress, Spoiler, Stack, Text, ThemeIcon, Timeline, Title, useMantineTheme } from '@mantine/core';
 
-import { IconBrandAdobePhotoshop, IconBrandAngular, IconBrandAws, IconBrandCpp, IconBrandCss3, IconBrandFigma, IconBrandGit, IconBrandGithub, IconBrandGithubFilled, IconBrandHtml5, IconBrandJavascript, IconBrandLinkedin, IconBrandLinkedinFilled, IconBrandMantine, IconBrandNextjs, IconBrandNodejs, IconBrandNotion, IconBrandPython, IconBrandReact, IconBrandReactNative, IconBrandRedux, IconBrandStorybook, IconBrandTailwind, IconBrandThreejs, IconBrandTypescript, IconBrandVite, IconCircleCheck, IconFoldDown, IconFoldUp, IconMail, IconMailFilled, IconMapPin, IconMapPinFilled, IconPhone, IconPhoneFilled, IconSkull } from '@tabler/icons-react';
+import { IconBrandAdobePhotoshop, IconBrandAngular, IconBrandAws, IconBrandCpp, IconBrandCss3, IconBrandFigma, IconBrandGit, IconBrandGithub, IconBrandGithubFilled, IconBrandHtml5, IconBrandJavascript, IconBrandLinkedin, IconBrandLinkedinFilled, IconBrandMantine, IconBrandNextjs, IconBrandNodejs, IconBrandNotion, IconBrandPython, IconBrandReact, IconBrandReactNative, IconBrandRedux, IconBrandStorybook, IconBrandTailwind, IconBrandThreejs, IconBrandTypescript, IconBrandVite, IconCircleCheck, IconFileTypePdf, IconFoldDown, IconFoldUp, IconMail, IconMailFilled, IconMapPin, IconMapPinFilled, IconPhone, IconPhoneFilled, IconSkull } from '@tabler/icons-react';
 import classes from './index.module.css';
 import profilePicture from '../assets/img/profile_photo.jpg';
 import { ReactComponent as JavaIcon } from '../assets/icons/java.svg';
@@ -15,7 +15,7 @@ export default function IndexPage() {
        */}
       <Box className={classes.banner}>
         <Group p="xl">
-          <Box w={300} />
+          <Box className={classes.bannerPlaceholder} />
           <Box flex={1}>
             <Stack className={classes.bannerContent}>
               <Title fz="3rem" order={1}>SANDY BRUTAS</Title>
@@ -52,6 +52,14 @@ export default function IndexPage() {
                 </Anchor>
               </List.Item>
             </List>
+          </Box>
+          <Box mb="md">
+            <Title order={3} fw="500">EDUCATION</Title>
+            <Divider size="md" mb="sm" color="dark" />
+            <Text fz="md" fw={500}>Ateneo de Naga University</Text>
+            <Text fz="md">Bachelor of Science in Information Technology</Text>
+            <Text fz="sm" fs="italic">* College Honors</Text>
+            <Text fz="md">2012 - 2016</Text>
           </Box>
           <Box mb="md">
             <Title order={3} fw="500">INDUSTRY SKILLS</Title>
@@ -146,7 +154,7 @@ export default function IndexPage() {
               <List.Item>Can efficiently work under minimal supervision</List.Item>
             </List>
           </Box>
-          <Box>
+          {/* <Box>
             <Title order={3} fw="500">EDUCATIONAL BACKGROUND</Title>
             <Divider size="md" mb="sm" color="dark" />
             <Group justify="space-between">
@@ -155,11 +163,11 @@ export default function IndexPage() {
             </Group>
             <Text>Bachelor of Science in Information Technology</Text>
             <Text size="sm" fs="italic">* College Honors</Text>
-          </Box>
+          </Box> */}
           <Box>
             <Title order={3} fw="500">WORK EXPERIENCE</Title>
             <Divider size="md" mb="sm" color="dark" />
-            <Timeline reverseActive active={5} color="#323b4c" bulletSize={16} lineWidth={2} styles={{ itemTitle: { marginBottom: 0 } }}>
+            <Timeline active={4} color="#323b4c" bulletSize={16} lineWidth={2} styles={{ itemTitle: { marginBottom: 0 } }}>
               {/* <ExperienceBlock
                 role="Senior Software Engineer"
                 tenure="October 2024 - present"
@@ -187,20 +195,23 @@ export default function IndexPage() {
                 tenure="March 2022 - October 2024"
                 company="Biarri Networks"
                 summary={[
-                  "focuses on creating reusable React components for the company's front-end applications",
-                  'works on the front-end side of a couple fintech platform applications',
+                  'Worked as a front-end developer on a fiber optic network planning tool, mainly visualizing geographic data using React and Mapbox',
                 ]}
                 techstack={[
                   { label: 'React', icon: <IconBrandReact /> },
                   { label: 'Typescript', icon: <IconBrandTypescript /> },
                   { label: 'Vite', icon: <IconBrandVite /> },
-                  { label: 'React Query' },
+                  { label: 'Redux', icon: <IconBrandRedux /> },
+                  { label: 'RTK Query' },
+                  { label: 'Mapbox GL JS' },
                   { label: 'Material UI' },
+                  { label: 'Ag Grid' },
+                  { label: 'msw' },
                   { label: 'Testing Library' },
-                  { label: 'Vitest', icon: <IconBrandVite /> },
+                  { label: 'Jest' },
+                  { label: 'Selenium' },
                   { label: 'Git', icon: <IconBrandGit /> },
                   { label: 'Figma', icon: <IconBrandFigma /> },
-                  { label: 'Notion', icon: <IconBrandNotion /> },
                 ]}
               />
               <ExperienceBlock
@@ -208,7 +219,9 @@ export default function IndexPage() {
                 tenure="August 2021 - March 2022"
                 company="FlixForge Ltd."
                 summary={[
-                  "offered services related to maintenance and development of a client's OTT and VOD platform, migrating it from Angular to React",
+                  "Worked on migrating the company's Over-The-Top (OTT) and Video On Demand (VOD) platform from Angular to React",
+                  "Tasked to customize the OTT platform for a client media company, applying their branding in the look and feel of the customized platform",
+                  "Worked on fixing identified issues of the PWA app of the video streaming platform across multiple devices, including some on iOS devices and LG TV's webOS"
                 ]}
                 techstack={[
                   { label: "React", icon: <IconBrandReact /> },
@@ -224,7 +237,9 @@ export default function IndexPage() {
                 tenure="April 2020 - August 2021"
                 company="Cambridge University Press & Assessment (DSCL Manila — ROHQ)"
                 summary={[
-                  "performed maintenance tasks that include new feature developments and bug fixing for multiple customer-facing web applications",
+                  "Performed maintenance tasks that include new feature developments and bug fixing for multiple customer-facing web applications",
+                  "Migrated a couple of front-end projects built with jQuery from v1 to v3 due to security issues",
+                  "Worked on some improvements in the payment gateway integration of the company's payments website",
                 ]}
                 techstack={[
                   { label: 'Angular', icon: <IconBrandAngular /> },
@@ -240,11 +255,14 @@ export default function IndexPage() {
                 ]}
               />
               <ExperienceBlock 
-                role="Software Engineer II" 
+                role="Software Engineer"
                 tenure="July 2018 - April 2020" 
                 company="Samsung Research & Development Institute, Philippines"
                 summary={[
-                  "Delegated to guide the team  design various projects’ front-end architecture" , "worked on a number of large-scale data visualization and virtualization projects using React",
+                  "Delegated to guide a team plan out the front-end architecture for new projects, which also involves knowledge sharing in front-end development using React and other tools/libraries",
+                  "Worked with a team to develop an analytics tool to visualize wireless network data in a customizable dashboard with data grids and charts using React and Highcharts",
+                  "Collaborated with a team of front-end developers to build an internal React components library that is shared across different projects",
+                  "Worked on a POC project that virtualizes remote infrastractures with 3D models using React and Three.js",
                 ]} 
                 techstack={[
                   { label: 'React', icon: <IconBrandReact /> },
@@ -259,6 +277,7 @@ export default function IndexPage() {
                   { label: 'Testing Library' },
                   { label: 'Jest' },
                   { label: 'Enzyme' },
+                  { label: 'Storybook', icon: <IconBrandStorybook /> },
                   { label: 'Git', icon: <IconBrandGit /> },
                   { label: 'Zeplin' },
                 ]} 
@@ -293,6 +312,11 @@ export default function IndexPage() {
           </Box>
         </Stack>
       </Group>
+      <Affix className={classes.printBtn} position={{ bottom: 20, right: 20 }}>
+        <ActionIcon variant="gradient" size="xl" radius="xl" onClick={() => window.print()}>
+          <IconFileTypePdf />
+        </ActionIcon>
+      </Affix>
     </Container>
   );
 }
