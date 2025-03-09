@@ -244,7 +244,7 @@ export default function IndexPage() {
                 tenure="July 2018 - April 2020" 
                 company="Samsung Research & Development Institute, Philippines"
                 summary={[
-                  "delegated to design various projects’ front-end architecture" , "worked on a number of large-scale data visualization and virtualization projects using React",
+                  "Delegated to guide the team  design various projects’ front-end architecture" , "worked on a number of large-scale data visualization and virtualization projects using React",
                 ]} 
                 techstack={[
                   { label: 'React', icon: <IconBrandReact /> },

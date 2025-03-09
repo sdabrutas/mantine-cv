@@ -1,29 +1,26 @@
 import { forwardRef } from 'react';
-import { Flex, Group, List, Spoiler, Text, Timeline } from '@mantine/core';
+import { Box, Button, Collapse, Flex, Group, List, Spoiler, Text, Timeline } from '@mantine/core';
+import { ExperienceBlockProps } from './types';
+import { IconChevronDown, IconChevronUp, IconFoldDown, IconFoldUp } from '@tabler/icons-react';
 
-import { IconFoldDown, IconFoldUp } from '@tabler/icons-react';
 import classes from './experience.module.css';
 import { Badge } from '..';
-import { ExperienceBlockProps } from './types';
+import { useDisclosure } from '@mantine/hooks';
 
 const ExperienceBlock = forwardRef<HTMLDivElement, ExperienceBlockProps>(
-  ({ role, company, tenure, summary, techstack, defaultExpanded = false, ...rest }, ref) => (
-    <Timeline.Item
-      ref={ref}
-      title={
-        <Group justify="space-between">
-          <Text fw={500}>{role}</Text>
-          <Text fs="italic">{tenure}</Text>
-        </Group>
-      }
-      {...rest}
-    >
-      <Spoiler
-        classNames={{ control: classes.spoilerControl }}
-        maxHeight={64}
-        showLabel={<IconFoldDown size={20} />}
-        hideLabel={<IconFoldUp size={20} />}
-        initialState={defaultExpanded}
+  ({ role, company, tenure, summary, techstack, defaultExpanded = false, ...rest }, ref) => {
+    const [opened, { toggle }] = useDisclosure(defaultExpanded);
+
+    return (
+      <Timeline.Item
+        ref={ref}
+        title={
+          <Group justify="space-between">
+            <Text fw={500}>{role}</Text>
+            <Text fs="italic">{tenure}</Text>
+          </Group>
+        }
+        {...rest}
       >
         <Text>{company}</Text>
         <List>
@@ -33,11 +30,26 @@ const ExperienceBlock = forwardRef<HTMLDivElement, ExperienceBlockProps>(
             </List.Item>
           ))}
         </List>
-        <Flex mt="sm" mb="sm" columnGap={2} rowGap={4} wrap="wrap">
-          {techstack.map((tech) => <Badge key={tech.label} variant="light" label={tech.label} icon={tech.icon} />)}
-        </Flex>
-      </Spoiler>
-    </Timeline.Item>
-  ));
+        <Box className={classes.container}>
+          <Button
+            fullWidth
+            justify="flex-start"
+            onClick={toggle}
+            leftSection={opened ? <IconChevronUp size={20} /> : <IconChevronDown size={20} />}
+            color="#798499"
+            fw={400}
+            radius={0}
+          >
+            Tech stack
+          </Button>
+          <Collapse in={opened}>
+            <Flex columnGap={2} rowGap={4} wrap="wrap" p="xs">
+              {techstack.map((tech) => <Badge key={tech.label} variant="light" label={tech.label} icon={tech.icon} />)}
+            </Flex>
+          </Collapse>
+        </Box>
+      </Timeline.Item>
+    );
+  });
 
 export default ExperienceBlock;

@@ -3,7 +3,7 @@
   height: 100%;
   width: 300px;
   padding: var(--mantine-spacing-md);
-  background-color: #e4e4e4;
+  background-color: #e5e6e7;
   padding-top: 110px;
 
   @media screen and (max-width: $mantine-breakpoint-md) {

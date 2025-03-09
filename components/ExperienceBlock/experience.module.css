@@ -10,3 +10,9 @@
     box-shadow: 0 -14px 12px 0px #fff;
   }
 }
+
+.container {
+  background-color: #f3f4f7;
+  border-radius: 4px;
+  overflow: hidden;
+}
