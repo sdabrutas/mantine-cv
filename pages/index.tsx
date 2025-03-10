@@ -221,7 +221,7 @@ export default function IndexPage() {
                 summary={[
                   "Worked on migrating the company's Over-The-Top (OTT) and Video On Demand (VOD) platform from Angular to React",
                   "Tasked to customize the OTT platform for a client media company, applying their branding in the look and feel of the customized platform",
-                  "Worked on fixing identified issues of the PWA app of the video streaming platform across multiple devices, including some on iOS devices and LG TV's webOS"
+                  "Worked on fixing identified issues of the Progressive Web App (PWA) of the video streaming platform across multiple devices, including some on iOS devices and LG TV's webOS"
                 ]}
                 techstack={[
                   { label: "React", icon: <IconBrandReact /> },
@@ -313,7 +313,7 @@ export default function IndexPage() {
         </Stack>
       </Group>
       <Affix className={classes.printBtn} position={{ bottom: 20, right: 20 }}>
-        <ActionIcon variant="gradient" size="xl" radius="xl" onClick={() => window.print()}>
+        <ActionIcon variant="gradient" size="xl" radius="xl" component="a" href="/copy.pdf" download="Sandy-Brutas-CV">
           <IconFileTypePdf />
         </ActionIcon>
       </Affix>

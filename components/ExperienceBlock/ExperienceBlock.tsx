@@ -24,9 +24,9 @@ const ExperienceBlock = forwardRef<HTMLDivElement, ExperienceBlockProps>(
         {...rest}
       >
         <Text>{role}</Text>
-        <List>
+        <List size="sm" spacing="xs" style={{ paddingRight: 20 }}>
           {summary.map((item, index) => (
-            <List.Item key={`summary-item-${index}`} fz="sm">
+            <List.Item key={`summary-item-${index}`}>
               {item}
             </List.Item>
           ))}

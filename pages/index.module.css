@@ -20,8 +20,8 @@
   }
 
   @media print {
-    width: 200px;
-    padding-top: 80px;
+    width: 190px;
+    padding-top: 60px;
   }
 }
 
