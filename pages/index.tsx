@@ -119,6 +119,7 @@ export default function IndexPage() {
               <Badge label="Agile SDLC" />
               <Badge label="AWS CloudFront" icon={<IconBrandAws />} />
               <Badge label="AWS S3" icon={<IconBrandAws />} />
+              <Badge label="Jenkins" />
               <Badge label="CircleCI" />
               <Badge label="Github" icon={<IconBrandGithubFilled />} />
             </Flex>
@@ -210,6 +211,7 @@ export default function IndexPage() {
                   { label: 'Testing Library' },
                   { label: 'Jest' },
                   { label: 'Selenium' },
+                  { label: 'Jenkins' },
                   { label: 'Git', icon: <IconBrandGit /> },
                   { label: 'Figma', icon: <IconBrandFigma /> },
                 ]}
@@ -251,6 +253,7 @@ export default function IndexPage() {
                   { label: 'Webpack' },
                   { label: 'Spring Boot' },
                   { label: 'Git', icon: <IconBrandGit /> },
+                  { label: 'Jenkins' },
                   { label: 'Perforce' },
                 ]}
               />
